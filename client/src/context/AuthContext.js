@@ -31,17 +31,17 @@ export const AuthProvider = ({ children }) => {
         {
             id: 6,
             name: 'Dashboard',
-            url: '/dashboard'
+            url: '/admin/dashboard'
         },  
         {
             id: 3,
             name: 'Add',
-            url: '/addnews'
+            url: '/admin/add'
         },
         {
             id: 4,
             name: 'View All',
-            url: '/viewall'
+            url: '/admin/viewall'
         },
         {
             id: 5,

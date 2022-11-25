@@ -78,7 +78,7 @@ function DrawerAppBar(props) {
 
 
     const { navItems, user } = useContext(AuthContext)
-    console.log(navItems)
+    // console.log(navItems)
     const history = useHistory()
     const [search, setSearch] = React.useState('');
 
@@ -147,11 +147,7 @@ function DrawerAppBar(props) {
                                 {item.name}
                             </Button>
                         ))}
-                        {/* <Button sx={{ color: '#fff' }}
-                        // onClick={() => { history.replace(item.url) }}
-                        >
-                            <LongMenu />
-                        </Button> */}
+
                     </Box>
                     {user === null &&
                         <Search sx={{ flexGrow: 1, }}>

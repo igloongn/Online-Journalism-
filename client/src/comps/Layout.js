@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
 
             <div 
                 style={{
-                    minHeight: '600px'
+                    minHeight: '500px'
                 }}
             >
                 {children}

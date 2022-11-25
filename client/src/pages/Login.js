@@ -22,7 +22,7 @@ const Login = () => {
             const result = await axios.post(url, payload)
 
             localStorage.setItem("token", result.data.token);
-            window.location.href = '/dashboard'
+            window.location.href = '/admin/dashboard'
 
         } catch (error) {
             // console.log(error.response.data.message)

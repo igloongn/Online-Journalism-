@@ -17,7 +17,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import PrivateRoutes from './comps/auth/PrivateRoutes';
 import Logout from './pages/Logout';
-import {Dashboard} from './pages/dashboard/dashboard/DashboardComponent' 
+import { Dashboard } from './pages/dashboard/dashboard/DashboardComponent'
 
 
 
@@ -33,6 +33,8 @@ import Feed from './pages/interface/Feed';
 import { useContext } from 'react';
 
 import { Rightbar } from './pages/interface/RightBar';
+import AddNews from './pages/AddNews';
+import Viewall from './pages/Viewall';
 
 
 function App() {
@@ -41,7 +43,7 @@ function App() {
   const history = useHistory()
 
   const { user } = useContext(AuthContext)
-  console.log(user)
+  // console.log(user)
 
 
   return (
@@ -154,11 +156,16 @@ function App() {
                   </Route>
 
 
-
                   {/* Private Routes */}
                   <PrivateRoutes>
-                    <Route exact path='/dashboard' >
+                    <Route exact path='/admin/dashboard' >
                       <Dashboard />
+                    </Route>
+                    <Route exact path='/admin/add' >
+                      <AddNews />
+                    </Route>
+                    <Route exact path='/admin/viewall' >
+                      <Viewall />
                     </Route>
                   </PrivateRoutes>
 

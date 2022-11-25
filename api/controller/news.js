@@ -3,21 +3,7 @@ const app = express()
 const News = require('../models/news')
 
 const getAllNews = async (req, res, next) => {
-    // try {
-    //     const news = await News.find().sort({ _id: -1 })
-    //     return res.status(200).json({
-    //         message: 'Get all the News Here',
-    //         data: news
-    //     })
 
-    // } catch (err) {
-    //     return res.status(200).json({
-    //         message: 'GET request failed',
-    //         error: err
-    //     })
-    // }
-
-    
     // const { page =1, limit = 3 } = req.query;
     const { page, limit = 5 } = req.query;
 
@@ -95,6 +81,7 @@ const getSingleNews = async (req, res, next) => {
         })
 
 }
+
 const searchController = async (req, res, next) => {
     let searchQuery = req.params.searchQuery
     searchQuery = searchQuery.substr(1,)
@@ -157,12 +144,35 @@ const Pagination = async (req, res, next) => {
 
 }
 
+const deleteSingleNews = async (req, res, next) => {
+    const { newsId } = req.params
+    try {
+        const result = await News.findByIdAndRemove(newsId)
+        console.log(result)
+        if (result.deletedCount === 0) {
+            return res.json({
+                msg: 'The Item Existed but It has been deleted'
+            })
+        } else {
+            return res.json({
+                msg: 'The Item has been deleted',
+                result
+            })
+        }
+    } catch (error) {
+        res.json({
+            error
+        })
+    }
+
+
+}
 
 module.exports = {
     getAllNews,
     postAllNews,
     getSingleNews,
-
+    deleteSingleNews,
 
     searchController,
 

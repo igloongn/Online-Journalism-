@@ -24,7 +24,7 @@ const Homepage = () => {
             const result = await axios.get(url)
             try {
                 setLocalNews(result.data.data)
-                setloading(false)
+                // setloading(false)
 
             } catch (err) {
                 console.log('error')
@@ -64,8 +64,8 @@ const Homepage = () => {
 
 
         getLocalNews()
-        // getExternalNews()
-        // getNigeriaNews()
+        getExternalNews()
+        getNigeriaNews()
 
     }, []);
 

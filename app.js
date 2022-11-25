@@ -8,6 +8,7 @@ var cors = require('cors')
 const newsRouter = require('./api/routes/news')
 const { searchController, Pagination } = require('./api/controller/news')
 const userRouter = require('./api/routes/user')
+const adminRouter = require('./api/routes/adminData')
 const testRouter = require('./api/routes/test')
 
 dotenv.config()
@@ -30,10 +31,15 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(morgan('dev'))
 
+app.get('/', (req, res) => {
+    return res.redirect('/news');
+})
 app.use('/news', newsRouter)
 app.use('/search/:searchQuery', searchController)
 app.use('/pagination', Pagination)
 app.use('/user', userRouter)
+
+app.use('/admindata', adminRouter)
 
 
 
