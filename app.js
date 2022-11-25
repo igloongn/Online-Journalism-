@@ -15,7 +15,8 @@ dotenv.config()
 // Step 1
 const PORT = process.env.PORT || 1234
 // Step 2
-const dbURI = process.env.MONGODB_URL || 'mongodb://localhost:27017/NewsAPI'
+// const dbURI = process.env.MONGODB_URL || 'mongodb://localhost:27017/NewsAPI'
+const dbURI = process.env.MONGODB_URL || 'mongodb+srv://temitope:Temitope1234@cluster0.wfxgsv1.mongodb.net/NewsAPI'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(res => {
         console.log(res.models)
