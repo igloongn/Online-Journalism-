@@ -48,7 +48,7 @@ const postAllNews = async (req, res, next) => {
         // const news = new News(req.body)
         const news = new News({
             image: req.file.path,
-            imageFilemine: 'uploadImages/'+req.body.popname,
+            imageFilemine: 'UploadImages/'+req.body.popname,
             title: req.body.title,
             detail: req.body.detail
         })
@@ -60,7 +60,8 @@ const postAllNews = async (req, res, next) => {
     } catch (err) {
         return res.status(400).json({
             message: 'News Failed',
-            error: err
+            error: err,
+            errorMsg: err.message
         })
 
     }
