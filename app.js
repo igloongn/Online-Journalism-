@@ -12,20 +12,30 @@ const adminRouter = require('./api/routes/adminData')
 const testRouter = require('./api/routes/test')
 
 dotenv.config()
+
+
+
+
+app.use('/', express.static('Images'))
+
+
+
 // Step 1
 const PORT = process.env.PORT || 1234
 // Step 2
-// const dbURI = process.env.MONGODB_URL || 'mongodb://localhost:27017/NewsAPI'
+// const dbURI = process.env.MONGODB_URL || 'mongodb://0.0.0.0:27017/NewsAPI'
+// const client = new MongoClient(dbURI);
 const dbURI = process.env.MONGODB_URL || 'mongodb+srv://temitope:Temitope1234@cluster0.wfxgsv1.mongodb.net/NewsAPI'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect(dbURI)
     .then(res => {
         console.log(res.models)
         start()
     })
     .catch(err => console.error(err))
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+// mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
 
 app.use(cors())
 app.use(express.urlencoded({ extended: false }))
@@ -49,10 +59,10 @@ app.use('/test', testRouter)
 
 
 
-// Step 3
-if (process.env.NODE_ENV === 'production') {
-    app.use('/', express.static('client/build'))
-} 
+// // Step 3
+// if (process.env.NODE_ENV === 'production') {
+//     app.use('/', express.static('client/build'))
+// }
 
 
 app.use((req, res, next) => {

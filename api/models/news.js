@@ -11,7 +11,12 @@ const structure = {
     },
     image: {
         type: String,
-        default: 'https://image.shutterstock.com/image-illustration/illustration-photo-taken-space-first-600w-2177907377.jpg'
+        required: true
+    },
+    imageFilemine: {
+        type: String,
+        // default: 'https://image.shutterstock.com/image-illustration/illustration-photo-taken-space-first-600w-2177907377.jpg'
+        required: true
     },
     detail: {
         type: String,

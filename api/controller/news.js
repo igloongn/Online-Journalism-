@@ -38,9 +38,20 @@ const getAllNews = async (req, res, next) => {
 }
 
 const postAllNews = async (req, res, next) => {
-    console.log(req.body)
-    const news = new News(req.body)
+    // console.log('req.body')
+    // console.log(req.body)
+    // console.log('Req.File')
+    // console.log(req.file)
+    // console.log('req.body.popname')
+    // console.log(req.body)
     try {
+        // const news = new News(req.body)
+        const news = new News({
+            image: req.file.path,
+            imageFilemine: 'uploadImages/'+req.body.popname,
+            title: req.body.title,
+            detail: req.body.detail
+        })
         const result = await news.save()
         return res.status(200).json({
             message: 'News Created Successfully',
