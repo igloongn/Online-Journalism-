@@ -19,7 +19,6 @@ dotenv.config()
 app.use('/', express.static('Images'))
 
 
-
 // Step 1
 const PORT = process.env.PORT || 1234
 // Step 2

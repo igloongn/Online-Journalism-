@@ -38,8 +38,8 @@ const getAllNews = async (req, res, next) => {
 }
 
 const postAllNews = async (req, res, next) => {
-    // console.log('req.body')
-    // console.log(req.body)
+    console.log('req.body')
+    console.log(req.body)
     // console.log('Req.File')
     // console.log(req.file)
     // console.log('req.body.popname')
